@@ -130,7 +130,7 @@ Validated the policy stack. The Block Rule is explicitly set to Priority 1 to en
 
 
 
-<img width="447" height="552" alt="good-user-auth-7" src="https://github.com/user-attachments/assets/605def4c-28f8-4cfa-8752-58537f492bef" />
+
 
 Figure 7: Final policy stack showing 'Block High Risk' at Priority 1.
 
