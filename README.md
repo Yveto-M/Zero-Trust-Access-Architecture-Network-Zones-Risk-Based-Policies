@@ -17,6 +17,8 @@ This project shifts the organization's security posture from "Perimeter-Based" t
 **Context-Aware Access:** Enforcing policies that adapt based on the user's network location.
 
 **Least Privilege:** Prioritizing "Deny" rules to ensure high-risk traffic is dropped immediately.
+
+
 &nbsp;
 
 
