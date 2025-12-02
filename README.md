@@ -148,8 +148,7 @@ Simulated a login from a compliant North American IP. The system correctly chall
 
 
 
-<img width="974" height="350" alt="ghost-block-ip-login-8" src="https://github.com/user-attachments/assets/8931acb1-daff-44b5-9993-b180dd97f7e8" />
-
+<img width="447" height="552" alt="good-user-auth-7" src="https://github.com/user-attachments/assets/ed214535-e66b-4385-8550-e187ef19ddbf" />
 Figure 8: Authorized user receives the expected MFA setup/prompt.
 
 
