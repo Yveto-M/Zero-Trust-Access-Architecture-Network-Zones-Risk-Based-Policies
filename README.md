@@ -39,7 +39,7 @@ Configured a Dynamic Network Zone to define the baseline for legitimate traffic.
 
 <img width="1021" height="415" alt="creating-dynamic-zone-1" src="https://github.com/user-attachments/assets/bef7a26b-b222-427f-879d-9d5015bc382f" />
 
-Figure 1: Initial configuration of the 'North America' dynamic zone. (creating-dynamic-zone-1.png)
+Figure 1: Initial configuration of the 'North America' dynamic zone. 
 
 
 &nbsp;
@@ -53,7 +53,7 @@ Validated the geographic parameters to ensure only United States and Canada are 
 
 <img width="945" height="452" alt="task-a-safezone-2" src="https://github.com/user-attachments/assets/49b748d7-d673-46c8-95b0-5737d88f129d" />
 
-Figure 2: Verifying the location parameters for the Safe Zone. (task-a-safezone-2.png)
+Figure 2: Verifying the location parameters for the Safe Zone. 
 
 
 &nbsp;
@@ -67,7 +67,7 @@ Created a Dynamic Zone to target specific high-risk geographies (e.g., Switzerla
 
 <img width="947" height="696" alt="task-b-block-3" src="https://github.com/user-attachments/assets/e79ba97e-e88a-4bda-8835-bb8d011f76c4" />
 
-**Figure 3: Configuring the 'High Risk Block' dynamic zone. (task-b-block-3.png)**
+Figure 3: Configuring the 'High Risk Block' dynamic zone. 
 
 
 &nbsp;
@@ -88,7 +88,7 @@ Established a new User Authentication Policy dedicated to high-security applicat
 
 <img width="603" height="421" alt="creating-policy-4" src="https://github.com/user-attachments/assets/5c6a071a-ba7e-4758-9be9-e3a625224880" />
 
-Figure 4: Initializing the 'IP Allow/Block List' policy. (creating-policy-4.png)
+Figure 4: Initializing the 'IP Allow/Block List' policy.
 
 
 &nbsp;
@@ -102,7 +102,7 @@ Engineered the rule for legitimate users: Traffic from "North America" is Allowe
 
 <img width="902" height="794" alt="allow-list-rule-5" src="https://github.com/user-attachments/assets/598c932b-9319-44ce-a7cf-39f7d82a26e1" />
 
-Figure 5: Configuring the 'North America' rule to require MFA. (allow-list-rule-5.png)
+Figure 5: Configuring the 'North America' rule to require MFA. 
 
 
 &nbsp;
@@ -116,7 +116,7 @@ Validated the policy stack. The Block Rule is explicitly set to Priority 2 (Deny
 
 <img width="975" height="499" alt="Policy-List-6" src="https://github.com/user-attachments/assets/2c2b164d-41e1-4945-a68f-772231ae5e37" />
 
-Figure 6: Final policy stack showing rule priority logic. (Policy-List-6.png)
+Figure 6: Final policy stack showing rule priority logic. 
 
 &nbsp;
 
@@ -137,7 +137,7 @@ Simulated a login from a compliant North American IP. The system correctly chall
 
 <img width="447" height="552" alt="good-user-auth-7" src="https://github.com/user-attachments/assets/1489e285-5e15-4e61-9aec-266fde0a3b8c" />
 
-Figure 7: Authorized user receives the expected MFA setup/prompt. (good-user-auth-7.png)
+Figure 7: Authorized user receives the expected MFA setup/prompt.
 
 
 &nbsp;
@@ -151,7 +151,7 @@ Analyzed the logs during initial testing to verify how the policy engine evaluat
 
 <img width="974" height="350" alt="ghost-block-ip-login-8" src="https://github.com/user-attachments/assets/4b50c73a-5dcd-4dcd-be9d-a75f87497dec" />
 
-Figure 8: Reviewing system logs to verify IP zone detection. (ghost-block-ip-login-8.png)
+Figure 8: Reviewing system logs to verify IP zone detection. 
 
 
 &nbsp;
@@ -173,7 +173,7 @@ During testing, standard Geo-IP detection for the VPN proved inconsistent. I eng
 
 <img width="952" height="612" alt="added-new-block-ip-9" src="https://github.com/user-attachments/assets/0f7ad4e9-f77f-431c-9e20-1987ab31eb5c" />
 
-Figure 9: Configuring the 'IP Block Zone' to target specific malicious gateways manually. (added-new-block-ip-9.png)
+Figure 9: Configuring the 'IP Block Zone' to target specific malicious gateways manually.
 
 
 &nbsp;
@@ -187,7 +187,7 @@ Retested the unauthorized access attempt using the restricted VPN IP. The system
 
 <img width="520" height="476" alt="mallone-deny-10" src="https://github.com/user-attachments/assets/cbe79ee7-fd7b-4d5b-b995-cac5aaca0082" />
 
-Figure 10: User receives an explicit "Access Denied" message despite having valid credentials. (mallone-deny-10.png)
+Figure 10: User receives an explicit "Access Denied" message despite having valid credentials. 
 
 **4.3 Final Forensic Audit**
 
@@ -197,7 +197,7 @@ Confirmed the enforcement in the System Log. The telemetry clearly shows the Pol
 
 <img width="1019" height="404" alt="user-block-highrisk-11" src="https://github.com/user-attachments/assets/85cbc70c-c993-47f6-a9e3-ce2ae8f9c6eb" />
 
-Figure 11: Expanded log details confirming the Actor, IP, and Policy Outcome. (user-block-highrisk-11.png)
+Figure 11: Expanded log details confirming the Actor, IP, and Policy Outcome. 
 
 
 &nbsp;
