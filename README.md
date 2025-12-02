@@ -2,11 +2,16 @@
 
 **Technologies:** Okta Adaptive MFA, Network Zones, Sign-On Policies
 **Status:** Enforced & Verified
+
+
 &nbsp;
+
 
 **🛡️ Executive Summary**
 
 This project shifts the organization's security posture from "Perimeter-Based" to "Zero Trust Identity." By implementing granular Network Zones and Risk-Based Authentication Policies, I enforced strict access controls that validate user location and device context before granting access to critical SaaS applications (GitHub).
+
+
 &nbsp;
 
 
@@ -26,6 +31,7 @@ This project shifts the organization's security posture from "Perimeter-Based" t
 
 **Objective: Define the boundaries of trust by categorizing IP traffic into "Safe" and "Blocked" zones.**
 
+
 **1.1 Defining the "Safe" Zone (North America)**
 
 Configured a Dynamic Network Zone to define the baseline for legitimate traffic. This allows for granular policy application (e.g., "Allow but Require MFA" for US/Canada).
@@ -39,6 +45,8 @@ Figure 1: Defining the 'North America' dynamic zone for authorized access.
 
 &nbsp;
 
+
+
 **1.2 Defining the "High Risk" Block List**
 
 Created a Dynamic Zone to target specific high-risk geographies (e.g., Switzerland, Bahrain) to simulate sanctioned regions.
@@ -49,7 +57,10 @@ Created a Dynamic Zone to target specific high-risk geographies (e.g., Switzerla
 
 Figure 2: Configuring the 'High Risk Block' dynamic zone.
 
+
 &nbsp;
+
+
 **1.3 The Manual Override (Troubleshooting Fix)**
 
 During testing, standard Geo-IP detection for the VPN proved inconsistent. I engineered a Static IP Zone to explicitly define the malicious gateway, ensuring 100% enforcement.
@@ -60,9 +71,15 @@ During testing, standard Geo-IP detection for the VPN proved inconsistent. I eng
 
 Figure 3: Configuring the 'IP Block Zone' to target specific malicious gateways manually.
 
+
+&nbsp;
+
+
 **🔒 Phase 2: Policy Engineering**
 
 Objective: Translate business risk requirements into technical enforcement rules.
+
+&nbsp;
 
 **2.1 Policy Creation**
 
@@ -74,7 +91,10 @@ Established a new User Authentication Policy dedicated to high-security applicat
 
 Figure 4: Initializing the 'IP Allow/Block List' policy.
 
+
 &nbsp;
+
+
 **2.2 Configuring the "Allow" Logic**
 
 Engineered the rule for legitimate users: Traffic from "North America" is Allowed but must pass an MFA Challenge.
@@ -85,7 +105,10 @@ Engineered the rule for legitimate users: Traffic from "North America" is Allowe
 
 Figure 5: Configuring the 'North America' rule to require MFA.
 
+
 &nbsp;
+
+
 **2.3 Configuring the "Block" Logic**
 
 Engineered the rule for high-risk users: Traffic from the "High Risk" or "IP Block" zones is Denied immediately.
@@ -96,7 +119,11 @@ Engineered the rule for high-risk users: Traffic from the "High Risk" or "IP Blo
 
 Figure 6: Setting the 'IF' condition to match against the custom Block Zones.
 
+
+
 &nbsp;
+
+
 **2.4 Final Rule Priority**
 
 Validated the policy stack. The Block Rule is explicitly set to Priority 1 to ensure it is evaluated before any Allow rules.
@@ -107,7 +134,10 @@ Validated the policy stack. The Block Rule is explicitly set to Priority 1 to en
 
 Figure 7: Final policy stack showing 'Block High Risk' at Priority 1.
 
+
 &nbsp;
+
+
 **🧪 Phase 3: Verification & User Experience**
 
 Objective: Validate the security controls by simulating both legitimate and malicious access attempts.
@@ -122,6 +152,10 @@ Simulated a login from a compliant North American IP. The system correctly chall
 
 Figure 8: Authorized user receives the expected MFA setup/prompt.
 
+
+&nbsp;
+
+
 **3.2 The "Bad Actor" Experience (Access Denied)**
 
 Simulated an unauthorized access attempt using the restricted VPN IP. The system evaluated the context and terminated the session immediately.
@@ -132,10 +166,18 @@ Simulated an unauthorized access attempt using the restricted VPN IP. The system
 
 Figure 9: User receives an explicit "Access Denied" message despite having valid credentials.
 
+
+
 &nbsp;
+
+
 **🔍 Phase 4: Forensic Audit (Logs)**
 
 Objective: Confirm the enforcement logic via system telemetry.
+
+
+&nbsp;
+
 
 **4.1 Verifying the Block Event**
 
@@ -147,6 +189,10 @@ Analyzed the System Log to confirm the Policy Engine decision. The log clearly s
 
 Figure 10: System Log proving the 'Block High Risk' rule was triggered.
 
+
+&nbsp;
+
+
 **4.2 Verifying the Zone Match**
 
 Confirmed that the incoming IP was correctly mapped to the High Risk Block zone, validating the Zone definition fix.
@@ -157,7 +203,10 @@ Confirmed that the incoming IP was correctly mapped to the High Risk Block zone,
 
 Figure 11: Expanded log details confirming the Actor, IP, and Policy Outcome.
 
+
 &nbsp;
+
+
 **📊 Impact Summary**
 
 Attack Surface Reduction: 100% of traffic from non-business regions is blocked at the identity perimeter.
